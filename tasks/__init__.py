@@ -1,0 +1,2 @@
+"""Celery async task definitions"""
+
