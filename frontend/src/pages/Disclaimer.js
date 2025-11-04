@@ -1,0 +1,149 @@
+import React from 'react';
+import './Disclaimer.css';
+
+function Disclaimer() {
+  return (
+    <div className="page-container">
+      <div className="disclaimer-page">
+        <div className="disclaimer-header-page">
+          <h1>⚠️ IMPORTANT DISCLAIMER ⚠️</h1>
+          <div className="warning-banner">
+            READ THIS CAREFULLY BEFORE USING THE POLITICAL SENTIMENT ALPHA PLATFORM
+          </div>
+        </div>
+
+        <div className="disclaimer-content">
+          <section>
+            <h2>1. NOT INVESTMENT ADVICE</h2>
+            <p>
+              The Political Sentiment Alpha Platform provides <strong>general research and informational content only</strong>. 
+              Nothing on this platform constitutes:
+            </p>
+            <ul>
+              <li>Personalized investment advice</li>
+              <li>A recommendation to buy, sell, or hold any security</li>
+              <li>An offer or solicitation to buy or sell securities</li>
+              <li>Financial, legal, tax, or accounting advice</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>2. NOT A REGISTERED INVESTMENT ADVISOR</h2>
+            <p>
+              We are <strong>NOT</strong> a registered investment advisor (RIA) under the Investment Advisers Act of 1940. 
+              We do not:
+            </p>
+            <ul>
+              <li>Provide individualized investment advice</li>
+              <li>Manage client portfolios</li>
+              <li>Have fiduciary duties to users</li>
+              <li>Recommend specific securities for individual circumstances</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>3. NO GUARANTEES</h2>
+            <p>
+              <strong>Past performance does NOT guarantee future results.</strong> All trading signals and analysis:
+            </p>
+            <ul>
+              <li>Are based on historical data and statistical models</li>
+              <li>May not reflect future market behavior</li>
+              <li>Can result in significant losses</li>
+              <li>Should not be relied upon as sole basis for investment decisions</li>
+            </ul>
+          </section>
+
+          <section className="risk-section">
+            <h2>4. RISK DISCLOSURE</h2>
+            <div className="risk-warning">
+              INVESTING IN SECURITIES INVOLVES RISK OF LOSS. YOU MAY LOSE ALL OF YOUR INVESTED CAPITAL.
+            </div>
+            <p>Risks include but are not limited to:</p>
+            <ul>
+              <li>Market volatility and price fluctuations</li>
+              <li>Model errors and statistical limitations</li>
+              <li>Data delays and inaccuracies</li>
+              <li>Unforeseen political or economic events</li>
+              <li>Liquidity risk and execution challenges</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>5. GENERAL INFORMATION ONLY</h2>
+            <p>
+              All signals, analysis, and data are provided <strong>for general informational purposes</strong>. 
+              We do not:
+            </p>
+            <ul>
+              <li>Know your financial situation, goals, or risk tolerance</li>
+              <li>Consider your individual circumstances</li>
+              <li>Provide personalized recommendations</li>
+              <li>Guarantee accuracy, completeness, or timeliness of information</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>6. CONSULT A LICENSED PROFESSIONAL</h2>
+            <p>
+              <strong>Before making any investment decisions, you must:</strong>
+            </p>
+            <ul>
+              <li>Consult with a licensed financial advisor or broker</li>
+              <li>Review your personal financial situation</li>
+              <li>Understand the risks involved</li>
+              <li>Conduct your own due diligence</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>7. NO LIABILITY</h2>
+            <p>
+              We are not liable for any losses, damages, or consequences arising from:
+            </p>
+            <ul>
+              <li>Use of this platform or reliance on its content</li>
+              <li>Trading decisions based on signals or analysis</li>
+              <li>Errors, omissions, or inaccuracies in data</li>
+              <li>System downtime or technical issues</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>8. PRIVACY & DATA</h2>
+            <p>
+              We collect minimal personal data and do NOT:
+            </p>
+            <ul>
+              <li>Track individual trading behavior</li>
+              <li>Create financial profiles</li>
+              <li>Share data with third parties for advertising</li>
+              <li>Require disclosure of portfolio holdings</li>
+            </ul>
+          </section>
+
+          <section className="acknowledgment">
+            <h2>9. ACKNOWLEDGMENT</h2>
+            <div className="acknowledgment-box">
+              BY USING THIS PLATFORM, YOU ACKNOWLEDGE THAT:
+              <ul>
+                <li>You have read and understood this disclaimer</li>
+                <li>You accept all risks associated with trading securities</li>
+                <li>You will not rely solely on this platform for investment decisions</li>
+                <li>You will consult with licensed professionals before trading</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <div className="disclaimer-footer-page">
+          <p>Political Sentiment Alpha Platform | Version 0.1.0-MVP</p>
+          <p>Last Updated: November 4, 2025</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Disclaimer;
+

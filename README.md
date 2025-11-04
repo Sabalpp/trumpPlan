@@ -1,5 +1,14 @@
 # Political Sentiment Alpha Platform MVP
 
+A full-stack quantitative trading research tool that identifies short-term alpha opportunities by analyzing political communications (primarily Trump family social media) and their market impact.
+
+## 🏗️ Architecture
+
+This project is structured as a **modern full-stack application**:
+
+- **Backend**: Python Flask REST API (`/backend`)
+- **Frontend**: React single-page application (`/frontend`)
+
 ## Executive Summary
 
 A quantitative trading research tool that identifies short-term alpha opportunities by analyzing political communications (primarily Trump family social media) and their market impact. This platform is designed for **informational purposes only** and does not constitute investment advice.
@@ -102,49 +111,57 @@ A quantitative trading research tool that identifies short-term alpha opportunit
 ## Project Structure
 
 ```
-political-alpha-mvp/
-├── app/                    # Flask application
-│   ├── main.py            # Main Flask app
-│   └── routes.py          # API endpoints
-├── data/                   # Data ingestion modules
-│   ├── ingestion.py       # Multi-source data fetchers
-│   ├── market.py          # Market data (Alpha Vantage, yfinance)
-│   └── aggregator.py      # ETL and normalization
-├── nlp/                    # NLP processing
-│   ├── pipeline.py        # 3-stage NLP pipeline
-│   └── train_nlp.py       # Model fine-tuning
-├── quant/                  # Quantitative models
-│   └── event_study.py     # Event study methodology
-├── models/                 # Database models
-│   └── db.py              # SQLAlchemy schemas
-├── tasks/                  # Async processing
-│   └── celery_app.py      # Celery tasks
-├── tests/                  # Test suite
-│   ├── test_event_study.py
-│   ├── test_nlp.py
-│   └── test_ingestion.py
-├── templates/              # HTML templates
-│   └── disclaimer.html
-├── static/                 # Static assets
-├── docs/                   # Documentation
+political-alpha-platform/
+├── backend/                # Python Flask API
+│   ├── app/               # Flask application
+│   │   ├── main.py       # Main Flask app
+│   │   └── routes.py     # Additional routes
+│   ├── data/             # Data ingestion modules
+│   ├── models/           # Database models
+│   ├── nlp/              # NLP processing pipeline
+│   ├── quant/            # Quantitative analysis
+│   ├── tasks/            # Celery async tasks
+│   ├── tests/            # Backend tests
+│   ├── templates/        # Jinja2 templates
+│   ├── static/           # Static files
+│   ├── config.py         # Configuration
+│   ├── requirements.txt  # Python dependencies
+│   └── README.md         # Backend documentation
+│
+├── frontend/              # React application
+│   ├── public/           # Static assets
+│   ├── src/
+│   │   ├── pages/       # React page components
+│   │   │   ├── Dashboard.js
+│   │   │   ├── Signals.js
+│   │   │   ├── Backtest.js
+│   │   │   ├── Waitlist.js
+│   │   │   ├── Pricing.js
+│   │   │   └── Disclaimer.js
+│   │   ├── App.js       # Main app component
+│   │   └── index.js     # Entry point
+│   ├── package.json     # Node dependencies
+│   └── README.md        # Frontend documentation
+│
+├── docs/                 # Project documentation
+│   ├── compliance_checklist.md
+│   ├── deployment_guide.md
 │   ├── privacy.md
 │   └── roadmap.md
-├── config.py              # Configuration management
-├── data_prototype.py      # MVP proof-of-concept script
-├── requirements.txt       # Python dependencies
-└── README.md             # This file
+│
+├── run_backend.bat       # Start backend server
+├── run_frontend.bat      # Start frontend server
+├── start_all.bat         # Start both servers
+└── README.md            # This file
 ```
 
-## Setup Instructions
+## 🚀 Quick Start
 
 ### Prerequisites
 
-1. **Python 3.10+** installed
-2. **AWS Account** (free tier eligible)
-3. **API Keys** (obtain before running):
-   - X API v2 (Bearer Token) - [developer.x.com](https://developer.x.com)
-   - Alpha Vantage (free) - [alphavantage.co](https://www.alphavantage.co/support/#api-key)
-   - Truth Social API (optional, via ScrapeCreators) - [scrapecreators.com](https://scrapecreators.com)
+1. **Python 3.10+** - Backend API
+2. **Node.js 16+** - Frontend application
+3. **Git** - Version control
 
 ### Installation
 
@@ -152,23 +169,49 @@ political-alpha-mvp/
 # 1. Clone the repository
 git clone https://github.com/Sabalpp/trumpPlan.git
 cd trumpPlan
+```
 
-# 2. Create virtual environment
+### Option 1: Run Everything (Recommended for Development)
+
+**Windows:**
+```cmd
+start_all.bat
+```
+
+This will open two terminal windows:
+- Backend API: http://localhost:5000
+- Frontend React: http://localhost:3000
+
+### Option 2: Run Individually
+
+**Backend Only:**
+```cmd
+run_backend.bat
+```
+
+**Frontend Only:**
+```cmd
+run_frontend.bat
+```
+
+### Manual Setup
+
+**Backend:**
+```bash
+cd backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
+venv\Scripts\activate      # Windows
+# source venv/bin/activate # Mac/Linux
 pip install -r requirements.txt
-
-# 4. Download spaCy model
 python -m spacy download en_core_web_sm
+python app/main.py
+```
 
-# 5. Set up environment variables
-cp .env.example .env
-# Edit .env with your API keys
-
-# 6. Run prototype
-python data_prototype.py
+**Frontend:**
+```bash
+cd frontend
+npm install
+npm start
 ```
 
 ### Environment Variables
@@ -198,28 +241,38 @@ FLASK_ENV=development
 SECRET_KEY=your_secret_key_here
 ```
 
-## Quick Start: Running the Prototype
+## 📱 Using the Platform
 
-The `data_prototype.py` script demonstrates the core concept:
+### Frontend Interface
 
+Once both servers are running, open your browser to **http://localhost:3000**
+
+**Available Pages:**
+- **Dashboard** (`/`) - Real-time signal statistics and recent signals
+- **Signals** (`/signals`) - Browse and filter historical trading signals
+- **Backtest** (`/backtest`) - View backtesting performance metrics
+- **Waitlist** (`/waitlist`) - Join the early access waitlist
+- **Pricing** (`/pricing`) - View subscription tiers and features
+- **Disclaimer** (`/disclaimer`) - Important legal disclaimer
+
+### Backend API
+
+The backend REST API runs on **http://localhost:5000**
+
+**Key Endpoints:**
+- `GET /` - API information
+- `POST /api/signal` - Generate signal from text
+- `GET /api/signals` - List trading signals
+- `GET /api/backtest` - View backtest results
+- `GET /api/stats` - Platform statistics
+- `GET /health` - Health check
+
+**Example: Generate Signal**
 ```bash
-python data_prototype.py
+curl -X POST http://localhost:5000/api/signal \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Apple is doing great things!", "run_event_study": false}'
 ```
-
-**Expected Output:**
-```json
-{
-  "ticker": "AAPL",
-  "direction": "positive",
-  "abnormal_return": 0.0025,
-  "confidence": 0.8,
-  "event_text": "Apple is doing great things...",
-  "timestamp": "2019-01-15T14:30:00Z",
-  "explanation": "High positive sentiment (0.85) + direct company mention"
-}
-```
-
-This validates the hypothesis: ~0.25% AR from political communications.
 
 ## Performance Targets
 
@@ -267,22 +320,60 @@ All users must acknowledge disclaimers before accessing signals. See `docs/priva
 - ThinkorSwim/Interactive Brokers integration
 - Institutional API ($500/mo)
 
-## Testing
+## 🧪 Testing
 
+**Backend Tests:**
 ```bash
-# Run all tests
+cd backend
 pytest
 
-# With coverage report
+# With coverage
 pytest --cov=. --cov-report=html
 
-# Specific test module
+# Specific test
 pytest tests/test_event_study.py -v
 ```
 
+**Frontend Tests:**
+```bash
+cd frontend
+npm test
+```
+
+## 🚢 Deployment
+
+### Backend (AWS Lambda + API Gateway)
+```bash
+cd backend
+serverless deploy
+```
+
+### Frontend (Netlify / Vercel)
+```bash
+cd frontend
+npm run build
+# Deploy the 'build' folder to your hosting service
+```
+
+See `docs/deployment_guide.md` for detailed instructions.
+
+## 📁 Folder Structure Benefits
+
+**Separation of Concerns:**
+- Backend and frontend are completely independent
+- Easy to deploy separately (microservices architecture)
+- Different teams can work on each part
+- Clear API contract between layers
+
+**Development Benefits:**
+- Run backend and frontend on different ports
+- Hot reload for both during development
+- Independent dependency management
+- Easier testing and debugging
+
 ## Contributing
 
-This is a private MVP project. For questions, contact: [your_email@example.com]
+This is a private MVP project. For questions or contributions, please open an issue on GitHub.
 
 ## License
 

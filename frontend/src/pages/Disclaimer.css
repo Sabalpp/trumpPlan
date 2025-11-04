@@ -1,0 +1,140 @@
+.disclaimer-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.disclaimer-header-page {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.disclaimer-header-page h1 {
+  color: #dc2626;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.warning-banner {
+  background: #fee2e2;
+  border: 3px solid #dc2626;
+  color: #991b1b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.disclaimer-content {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.disclaimer-content section {
+  margin-bottom: 2.5rem;
+}
+
+.disclaimer-content h2 {
+  color: #dc2626;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #fca5a5;
+  padding-bottom: 0.5rem;
+}
+
+.disclaimer-content p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.disclaimer-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.disclaimer-content li {
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+  position: relative;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.disclaimer-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0.5rem;
+  color: #dc2626;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.risk-section {
+  background: #fff1f2;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 5px solid #dc2626;
+}
+
+.risk-warning {
+  background: #fecaca;
+  border: 2px solid #dc2626;
+  color: #7f1d1d;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.acknowledgment {
+  background: #fffbeb;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 3px solid #f59e0b;
+}
+
+.acknowledgment-box {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid #f59e0b;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.acknowledgment-box ul {
+  margin-top: 1rem;
+}
+
+.disclaimer-footer-page {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f3f4f6;
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.disclaimer-footer-page p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .disclaimer-content {
+    padding: 1.5rem;
+  }
+
+  .disclaimer-header-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .disclaimer-content h2 {
+    font-size: 1.2rem;
+  }
+}
+
